@@ -44,37 +44,33 @@ application {
 }
 
 task myPrepare {
- group 'my-custom-operations'
- description 'My custom prepare task'
- doLast {
- println 'Preparing the environment...'
- }
+    group 'my-funny-operations'
+    description 'Summoning the build spirits...'
+    doLast {
+        println '🔮 Chanting spells and preparing the environment...'
+    }
 }
-task myCompileCode(dependsOn: 'myPrepare') {
- group 'my-custom-operations'
- description 'My custom compile task'
- doLast {
- println 'Compiling source code...'
- }
+
+task myCompileCode(dependsOn: myPrepare) {
+    group 'my-funny-operations'
+    description 'Casting compile magic...'
+    doLast {
+        println '✨ Abracadabra! Turning source into magic code...'
+    }
 }
-task myPackageApp(dependsOn: 'myCompileCode') {
- group 'my-custom-operations'
- description 'My custom package task'
- doLast {
- println 'Packaging application...'
- }
+
+task myPackageApp(dependsOn: myCompileCode) {
+    group 'my-funny-operations'
+    description 'Stuffing code into an enchanted box...'
+    doLast {
+        println '📦 Wrapping the app like a holiday present...'
+    }
 }
-task myDeploy(dependsOn: 'myPackageApp') {
- group 'my-custom-operations'
- description 'My custom deploy task'
- doLast {
- println 'Deploying application...'
- }
-}
-task myRun(dependsOn: 'myDeploy') {
- group 'my-custom-operations'
- description 'My custom run task'
- doLast {
- println 'Running application...'
- }
+
+task myDeploy(dependsOn: myPackageApp) {
+    group 'my-funny-operations'
+    description 'Launching the magic into the wild...'
+    doLast {
+        println '🚀 Deploying with style! Off it goes into the great beyond...'
+    }
 }
